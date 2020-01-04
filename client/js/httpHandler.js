@@ -5,6 +5,14 @@
   //
   // TODO: build the swim command fetcher here
   //
+  const swimCommand = () => {
+    $.ajax({
+      url: serverUrl,
+      success: (direction) => {
+        SwimTeam.move(direction.toLowerCase());
+      }
+    });
+  }
 
   /////////////////////////////////////////////////////////////////////
   // The ajax file uplaoder is provided for your convenience!
@@ -46,4 +54,7 @@
     ajaxFileUplaod(file);
   });
 
+  setInterval(swimCommand,1000);
 })();
+
+// setInterval(swimCommand,1000);
